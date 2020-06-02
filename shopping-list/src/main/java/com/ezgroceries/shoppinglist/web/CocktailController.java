@@ -11,7 +11,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping(value = "/cocktails", produces = "application/json")
-class CocktailController {
+public class CocktailController {
 
     @GetMapping
     public List<CocktailResource> get(@RequestParam String search) {
