@@ -1,36 +1,12 @@
 package com.ezgroceries.shoppinglist.web;
 
-import org.springframework.http.HttpEntity;
-
 import java.util.UUID;
 
-public class ShoppingListResource{
-    private String shoppingListName;
-    private UUID shoppingListId;
+public class ShoppingListResource {
 
-    public ShoppingListResource(String shoppingListName){
-        this.shoppingListName = shoppingListName;
+    public ShoppingList newShoppingList(ShoppingList shoppingList){
+        //shoppingList.setListName(shoppingList);
+        shoppingList.setListId(UUID.randomUUID());
+        return shoppingList;
     }
-
-    public String getShoppingListName() {
-        return shoppingListName;
-    }
-
-    public void setShoppingListName(String shoppingListName) {
-        this.shoppingListName = shoppingListName;
-    }
-
-    public UUID getShoppingListId() {
-        return shoppingListId;
-    }
-
-    public void setShoppingListId(UUID shoppingListId) {
-        this.shoppingListId = shoppingListId;
-    }
-
-    public ShoppingListResource(UUID shoppingListId, String shoppingListName){
-        this.shoppingListId = shoppingListId;
-        this.shoppingListName = shoppingListName;
-    }
-
 }
