@@ -11,21 +11,18 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RestController
+@RequestMapping(value = "/shopping-lists", produces = "application/json")
 public class ShoppingListController {
 
+    private ShoppingListResource shoppingListResource;
+
     @Autowired
-    private ShoppingListManager shoppingListManager;
-    //private Counter counter;
+    public ShoppingListController(ShoppingListResource shoppingListResource){
+        this.shoppingListResource = shoppingListResource;
+    }
 
-/*    @Autowired
-    public ShoppingListController(ShoppingListManager shoppingListManager, MeterRegistry registry){
-        this.shoppingListManager = shoppingListManager;
-        this.counter = registry.counter("shoppingList.fetch", "type", "fromCode");
-
-    }*/
-
-    @PostMapping(value = "/shopping-lists", consumes = "application/json", produces = "application/json")
-    public ShoppingList createShoppinglist(@RequestBody String shoppingListName){
-        return shoppingListManager.newShoppingList(shoppingListName);
+    @PostMapping(value = "/shopping-lists")
+    public ShoppingList newShoppinglist(@RequestBody String shoppingListName){
+        return shoppingListResource.newShoppingList(shoppingListName);
     }
 }
