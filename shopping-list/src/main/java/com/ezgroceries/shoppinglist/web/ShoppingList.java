@@ -7,30 +7,30 @@ import java.util.UUID;
 @Component
 public class ShoppingList {
 
-    private String listName;
-    private UUID listId;
+    private String name;
+    private UUID shoppingListId;
 
     public ShoppingList(){}
 
-    public ShoppingList(UUID listId, String listName){
-        this.listId = listId;
-        this.listName = listName;
+    public ShoppingList(UUID shoppingListId, String name){
+        this.shoppingListId = shoppingListId;
+        this.name = name;
     }
 
-    public String getListName() {
-        return listName;
+    public String getName() {
+        return name;
     }
 
-    public void setListName(String listName) {
-        this.listName = listName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public UUID getListId() {
-        return listId;
+    public UUID getShoppingListId() {
+        return shoppingListId;
     }
 
-    public void setListId(UUID listId) {
-        this.listId = listId;
+    public void setShoppingListId(UUID listId) {
+        this.shoppingListId = shoppingListId;
     }
 
 

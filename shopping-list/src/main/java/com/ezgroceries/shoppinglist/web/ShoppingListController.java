@@ -11,18 +11,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RestController
-@RequestMapping(value = "/shopping-lists", produces = "application/json")
 public class ShoppingListController {
 
     private ShoppingListResource shoppingListResource;
 
-    @Autowired
-    public ShoppingListController(ShoppingListResource shoppingListResource){
-        this.shoppingListResource = shoppingListResource;
-    }
-
-    @PostMapping(value = "/shopping-lists")
+    @PostMapping(value = "/shopping-lists", produces = "application/json", consumes = "application/json")
     public ShoppingList newShoppinglist(@RequestBody String shoppingListName){
+        ShoppingListResource shoppingListResource = new ShoppingListResource();
+
         return shoppingListResource.newShoppingList(shoppingListName);
     }
 }
