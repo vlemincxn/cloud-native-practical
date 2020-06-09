@@ -10,7 +10,6 @@ public class ShoppingListResource {
     public ShoppingList newShoppingList(ShoppingList shoppingList){
         shoppingList.setShoppingListId(UUID.randomUUID());
         shoppingList.setName(shoppingList.getName());
-        //ShoppingList shoppingList = new ShoppingList(UUID.randomUUID(), shoppingList);
         return shoppingList;
     }
 

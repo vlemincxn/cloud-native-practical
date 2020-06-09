@@ -38,6 +38,7 @@ public class CocktailResource {
 
     }
 
+
     public UUID getCocktailId() {
         return cocktailId;
     }
