@@ -2,6 +2,7 @@ package com.ezgroceries.shoppinglist.web;
 
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.UUID;
 
 public class ShoppingListResource {
@@ -11,5 +12,6 @@ public class ShoppingListResource {
         shoppingList.setName(shoppingList.getName());
         return shoppingList;
     }
+
 
 }

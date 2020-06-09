@@ -1,8 +1,6 @@
 package com.ezgroceries.shoppinglist.web;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,10 +21,8 @@ public class ShoppingListController {
     }
 
     @PostMapping(value = "/shopping-lists/{shoppingListId}/cocktails")
-    public List<CocktailResource> addCocktails(@PathVariable UUID shoppingListId, @RequestBody List<CocktailResource> cocktails){
+    public List<CocktailId> addCocktails(@PathVariable UUID shoppingListId, @RequestBody List<CocktailId> cocktails){
         return cocktails;
     }
-
-
 
 }
