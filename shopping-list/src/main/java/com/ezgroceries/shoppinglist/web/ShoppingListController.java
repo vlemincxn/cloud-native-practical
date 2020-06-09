@@ -3,6 +3,7 @@ package com.ezgroceries.shoppinglist.web;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
@@ -25,4 +26,18 @@ public class ShoppingListController {
         return cocktails;
     }
 
+    @GetMapping(value = "/shopping-lists/{shoppingListId}")
+    public ShoppingListResource getShoppingListDetails(@PathVariable UUID shoppingListId){
+        return getDummyShoppingList(shoppingListId);
+    }
+
+    public ShoppingListResource getDummyShoppingList(UUID shoppingListId) {
+        ShoppingListResource shoppingListResource =
+                new ShoppingListResource(
+                        shoppingListId,
+                        "Stephanie's birthday",
+                        Arrays.asList("Tequila", "Triple sec", "Lime juice","Salt","Blue Curacao")
+                );
+        return shoppingListResource;
+    }
 }

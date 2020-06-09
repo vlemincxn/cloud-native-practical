@@ -9,6 +9,7 @@ public class ShoppingList {
 
     private String name;
     private UUID shoppingListId;
+    private List<String> ingredients;
 
     public ShoppingList(){}
 
@@ -17,6 +18,11 @@ public class ShoppingList {
         this.name = name;
     }
 
+    public ShoppingList(UUID shoppingListId, String name, List ingredients){
+        this.shoppingListId = shoppingListId;
+        this.name = name;
+        this.ingredients = ingredients;
+    }
 
     @Override
     public String toString() {
