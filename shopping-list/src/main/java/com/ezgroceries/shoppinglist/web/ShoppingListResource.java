@@ -7,8 +7,11 @@ import java.util.UUID;
 @Component
 public class ShoppingListResource {
 
-    public ShoppingList newShoppingList(String shoppingListName){
-        ShoppingList shoppingList = new ShoppingList(UUID.randomUUID(),shoppingListName);
+    public ShoppingList newShoppingList(ShoppingList shoppingList){
+        shoppingList.setShoppingListId(UUID.randomUUID());
+        shoppingList.setName(shoppingList.getName());
+        //ShoppingList shoppingList = new ShoppingList(UUID.randomUUID(), shoppingList);
         return shoppingList;
     }
+
 }

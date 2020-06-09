@@ -4,7 +4,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.UUID;
 
-@Component
 public class ShoppingList {
 
     private String name;
@@ -15,6 +14,14 @@ public class ShoppingList {
     public ShoppingList(UUID shoppingListId, String name){
         this.shoppingListId = shoppingListId;
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "ShoppingList{" +
+                "name='" + name + '\'' +
+                ", shoppingListId=" + shoppingListId +
+                '}';
     }
 
     public String getName() {
@@ -30,7 +37,7 @@ public class ShoppingList {
     }
 
     public void setShoppingListId(UUID listId) {
-        this.shoppingListId = shoppingListId;
+        this.shoppingListId = UUID.randomUUID();
     }
 
 
