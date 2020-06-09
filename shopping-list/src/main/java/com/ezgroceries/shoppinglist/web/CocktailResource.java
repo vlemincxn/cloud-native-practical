@@ -22,6 +22,7 @@ public class CocktailResource {
 //            "Lime juice",
 //            "Salt"
 //            ]
+    private List cocktailIds;
 
     public CocktailResource(UUID cocktailId,
                             String name,
@@ -87,5 +88,6 @@ public class CocktailResource {
         this.ingredients = ingredients;
     }
 
+    public List<UUID> getCocktailIds(){ return cocktailIds; }
 
 }

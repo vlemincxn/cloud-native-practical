@@ -23,7 +23,7 @@ public class ShoppingListController {
     }
 
     @PostMapping(value = "/shopping-lists/{shoppingListId}/cocktails")
-    public List<CocktailResource> addCocktail(@PathVariable UUID shoppingListId, @RequestBody List<CocktailResource> cocktails){
+    public List<CocktailResource> addCocktails(@PathVariable UUID shoppingListId, @RequestBody List<CocktailResource> cocktails){
         return cocktails;
     }
 
