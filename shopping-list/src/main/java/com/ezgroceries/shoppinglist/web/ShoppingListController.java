@@ -40,4 +40,22 @@ public class ShoppingListController {
                 );
         return shoppingListResource;
     }
+
+    @GetMapping(value = "/shopping-lists")
+    public List <ShoppingListResource> getAllShoppingLists(){
+        return getDummyShoppingLists();
+    }
+
+    private List <ShoppingListResource> getDummyShoppingLists(){
+        return Arrays.asList(
+                new ShoppingListResource(
+                        UUID.fromString("4ba92a46-1d1b-4e52-8e38-13cd56c7224c"),
+                        "Stephanie's birthday",
+                        Arrays.asList("Tequila", "Triple sec", "Lime juice","Salt","Blue Curacao")),
+                new ShoppingListResource(
+                        UUID.fromString("6c7d09c2-8a25-4d54-a979-25ae779d2465"),
+                        "My birthday",
+                        Arrays.asList("Tequila", "Triple sec", "Lime juice","Salt","Blue Curacao")
+        ));
+    }
 }
