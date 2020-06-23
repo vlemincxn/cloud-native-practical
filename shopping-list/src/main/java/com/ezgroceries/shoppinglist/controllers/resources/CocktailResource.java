@@ -1,10 +1,11 @@
 package com.ezgroceries.shoppinglist.controllers.resources;
 
 import java.util.List;
+import java.util.UUID;
 
 public class CocktailResource {
 
-    private String cocktailId;
+    private UUID cocktailId;
     //            "cocktailId": "23b3d85a-3928-41c0-a533-6538a71e17c4",
     private String name;
     //            "name": "Margerita",
@@ -23,7 +24,7 @@ public class CocktailResource {
 //            ]
 
 
-    public CocktailResource(String cocktailId,
+    public CocktailResource(UUID cocktailId,
                             String name,
                             String glass,
                             String instructions,
@@ -43,11 +44,11 @@ public class CocktailResource {
     }
 
 
-    public String getCocktailId() {
+    public UUID getCocktailId() {
         return cocktailId;
     }
 
-    public void setCocktailId(String cocktailId) {
+    public void setCocktailId(UUID cocktailId) {
         this.cocktailId = cocktailId;
     }
 
