@@ -1,6 +1,6 @@
-package com.ezgroceries.shoppinglist.repositories;
+package com.ezgroceries.shoppinglist.persistence.repositories;
 
-import com.ezgroceries.shoppinglist.entities.CocktailEntity;
+import com.ezgroceries.shoppinglist.persistence.CocktailEntity;
 import org.springframework.data.repository.Repository;
 
 import java.util.List;

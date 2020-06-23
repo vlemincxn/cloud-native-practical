@@ -1,7 +1,4 @@
-package com.ezgroceries.shoppinglist.resources;
-
-import com.ezgroceries.shoppinglist.web.ShoppingList;
-import org.springframework.stereotype.Component;
+package com.ezgroceries.shoppinglist.controllers.resources;
 
 import java.util.List;
 import java.util.UUID;
@@ -14,21 +11,19 @@ public class ShoppingListResource {
     public ShoppingListResource() {
     }
 
-    public ShoppingListResource(UUID uuid, String shoppingListName, List ingredients){
+    public ShoppingListResource(UUID uuid, String shoppingListName, List ingredients) {
         this.uuid = uuid;
         this.shoppingListName = shoppingListName;
         this.ingredients = ingredients;
     }
 
-    public ShoppingListResource(UUID uuid, String shoppingListName){
+    public ShoppingListResource(UUID uuid, String shoppingListName) {
         this.uuid = uuid;
         this.shoppingListName = shoppingListName;
     }
 
-    public ShoppingList newShoppingList(ShoppingList shoppingList){
-        shoppingList.setShoppingListId(UUID.randomUUID());
-        shoppingList.setName(shoppingList.getName());
-        return shoppingList;
+    public ShoppingListResource(String shoppingListName){
+        this.shoppingListName = shoppingListName;
     }
 
     public UUID getUuid() {

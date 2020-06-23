@@ -1,10 +1,6 @@
-package com.ezgroceries.shoppinglist.resources;
-
-import com.fasterxml.jackson.annotation.JsonInclude;
+package com.ezgroceries.shoppinglist.controllers.resources;
 
 import java.util.List;
-import java.util.Set;
-import java.util.UUID;
 
 public class CocktailResource {
 

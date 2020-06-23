@@ -1,6 +1,8 @@
-package com.ezgroceries.shoppinglist.web;
+package com.ezgroceries.shoppinglist.controllers;
 
-import com.ezgroceries.shoppinglist.resources.ShoppingListResource;
+import com.ezgroceries.shoppinglist.controllers.resources.*;
+import com.ezgroceries.shoppinglist.services.ShoppingListService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,15 +13,21 @@ import java.util.UUID;
 
 @RestController
 public class ShoppingListController {
+    private ShoppingListService shoppingListService;
 
-    private ShoppingListResource shoppingListResource;
+    @Autowired
+    public ShoppingListController(ShoppingListService shoppingListService){
+        this.shoppingListService = shoppingListService;
+    }
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(value = "/shopping-lists", produces = "application/json")
-    public ShoppingList newShoppinglist(@RequestBody ShoppingList shoppingList){
-        ShoppingListResource shoppingListResource = new ShoppingListResource();
-
-        return shoppingListResource.newShoppingList(shoppingList);
+    public ShoppingListResource newShoppinglist(@RequestBody ShoppingListResource shoppingListResource){
+        return shoppingListService.createShoppingList(
+                new ShoppingListResource(
+                        shoppingListResource.getShoppingListName()
+                )
+        );
     }
 
     @PostMapping(value = "/shopping-lists/{shoppingListId}/cocktails")
@@ -59,4 +67,5 @@ public class ShoppingListController {
                         Arrays.asList("Tequila", "Triple sec", "Lime juice","Salt","Blue Curacao")
         ));
     }
+
 }

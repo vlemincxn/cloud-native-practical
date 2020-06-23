@@ -1,4 +1,4 @@
-package com.ezgroceries.shoppinglist.entities;
+package com.ezgroceries.shoppinglist.persistence;
 
 import org.springframework.util.CollectionUtils;
 

@@ -1,4 +1,6 @@
-package com.ezgroceries.shoppinglist.entities;
+package com.ezgroceries.shoppinglist.persistence.entities;
+
+import com.ezgroceries.shoppinglist.persistence.StringSetConverter;
 
 import javax.persistence.Convert;
 import javax.persistence.Entity;

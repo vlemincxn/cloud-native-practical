@@ -1,8 +1,8 @@
 package com.ezgroceries.shoppinglist.services;
 
-import com.ezgroceries.shoppinglist.entities.ShoppingListEntity;
-import com.ezgroceries.shoppinglist.repositories.ShoppingListRepository;
-import com.ezgroceries.shoppinglist.resources.ShoppingListResource;
+import com.ezgroceries.shoppinglist.controllers.resources.*;
+import com.ezgroceries.shoppinglist.persistence.entities.*;
+import com.ezgroceries.shoppinglist.persistence.repositories.ShoppingListRepository;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -14,9 +14,12 @@ public class ShoppingListService {
         this.shoppingListRepository = shoppingListRepository;
     }
 
-    public ShoppingListResource create(ShoppingListResource shoppingListResource) {
+    public ShoppingListResource createShoppingList(ShoppingListResource shoppingListResource) {
         ShoppingListEntity shoppingListEntity =
                 new ShoppingListEntity(shoppingListResource.getUuid(), shoppingListResource.getShoppingListName());
 
+        shoppingListEntity = shoppingListRepository.save(shoppingListEntity);
+
+        return new ShoppingListResource(shoppingListEntity.getId(), shoppingListEntity.getName());
     }
 }

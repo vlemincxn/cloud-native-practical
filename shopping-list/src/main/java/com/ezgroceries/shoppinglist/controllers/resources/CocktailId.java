@@ -1,4 +1,4 @@
-package com.ezgroceries.shoppinglist.web;
+package com.ezgroceries.shoppinglist.controllers.resources;
 
 import java.util.UUID;
 

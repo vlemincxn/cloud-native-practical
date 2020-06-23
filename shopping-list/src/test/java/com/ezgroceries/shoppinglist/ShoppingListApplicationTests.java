@@ -1,6 +1,6 @@
 package com.ezgroceries.shoppinglist;
 
-import com.ezgroceries.shoppinglist.web.ShoppingListController;
+import com.ezgroceries.shoppinglist.controllers.ShoppingListController;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 

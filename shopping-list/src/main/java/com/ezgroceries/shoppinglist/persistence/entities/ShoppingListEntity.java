@@ -1,4 +1,4 @@
-package com.ezgroceries.shoppinglist.entities;
+package com.ezgroceries.shoppinglist.persistence.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,6 +12,7 @@ public class ShoppingListEntity {
     @Id
     @Column(name ="id")
     private UUID uuid;
+
     @Column(name = "name")
     private String shoppingListName;
 

@@ -1,9 +1,9 @@
 package com.ezgroceries.shoppinglist.services;
 
 import com.ezgroceries.shoppinglist.clients.CocktailDBResponse;
-import com.ezgroceries.shoppinglist.entities.CocktailEntity;
-import com.ezgroceries.shoppinglist.repositories.CocktailRepository;
-import com.ezgroceries.shoppinglist.resources.CocktailResource;
+import com.ezgroceries.shoppinglist.persistence.entities.CocktailEntity;
+import com.ezgroceries.shoppinglist.persistence.repositories.CocktailRepository;
+import com.ezgroceries.shoppinglist.controllers.resources.CocktailResource;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -44,8 +44,7 @@ public class CocktailService {
     }
 
     private List<CocktailResource> mergeAndTransform(List<CocktailDBResponse.DrinkResource> drinks,
-                                                     Map<String,
-                                                     CocktailEntity> allEntityMap) {
+                                                     Map<String, CocktailEntity> allEntityMap) {
         return drinks.stream().map(drinkResource ->
                 new CocktailResource(
                         allEntityMap.get(
