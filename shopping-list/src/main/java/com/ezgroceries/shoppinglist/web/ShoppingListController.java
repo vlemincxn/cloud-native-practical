@@ -1,5 +1,6 @@
 package com.ezgroceries.shoppinglist.web;
 
+import com.ezgroceries.shoppinglist.resources.ShoppingListResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 

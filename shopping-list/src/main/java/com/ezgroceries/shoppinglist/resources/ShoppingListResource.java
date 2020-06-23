@@ -1,5 +1,6 @@
-package com.ezgroceries.shoppinglist.web;
+package com.ezgroceries.shoppinglist.resources;
 
+import com.ezgroceries.shoppinglist.web.ShoppingList;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -17,6 +18,11 @@ public class ShoppingListResource {
         this.uuid = uuid;
         this.shoppingListName = shoppingListName;
         this.ingredients = ingredients;
+    }
+
+    public ShoppingListResource(UUID uuid, String shoppingListName){
+        this.uuid = uuid;
+        this.shoppingListName = shoppingListName;
     }
 
     public ShoppingList newShoppingList(ShoppingList shoppingList){

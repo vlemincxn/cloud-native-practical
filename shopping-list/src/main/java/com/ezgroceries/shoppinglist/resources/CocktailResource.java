@@ -1,8 +1,9 @@
-package com.ezgroceries.shoppinglist.web;
+package com.ezgroceries.shoppinglist.resources;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 public class CocktailResource {
