@@ -2,10 +2,8 @@ package com.ezgroceries.shoppinglist.persistence.entities;
 
 import com.ezgroceries.shoppinglist.persistence.StringSetConverter;
 
-import javax.persistence.Convert;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
@@ -16,6 +14,9 @@ public class CocktailEntity {
     private UUID id;
     private String idDrink;
     private String name;
+
+    @ManyToMany(mappedBy = "cocktails")
+    private Set<ShoppingListEntity> shoppingLists = new HashSet<>();
 
     @Convert(converter = StringSetConverter.class)
     private Set<String> ingredients;
@@ -52,6 +53,15 @@ public class CocktailEntity {
         this.ingredients = ingredients;
     }
 
+    public Set<ShoppingListEntity> getShoppingLists() {
+        return shoppingLists;
+    }
+
+    @Transient
+    public void addCocktailToShoppingList(ShoppingListEntity shoppingListEntity) {
+        shoppingListEntity.getCocktails().add(this);
+        this.shoppingLists.add(shoppingListEntity);
+    }
 
 
 }

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -18,11 +19,8 @@ public class ShoppingListService {
     private final ShoppingListRepository shoppingListRepository;
     private final CocktailRepository cocktailRepository;
 
-    public ShoppingListService(ShoppingListRepository shoppingListRepository) {
+    public ShoppingListService(ShoppingListRepository shoppingListRepository, CocktailRepository cocktailRepository) {
         this.shoppingListRepository = shoppingListRepository;
-    }
-
-    public CocktailService(CocktailRepository cocktailRepository){
         this.cocktailRepository = cocktailRepository;
     }
 
@@ -54,14 +52,15 @@ public class ShoppingListService {
         return shoppingListResource;
     }
 
-    public ShoppingListResource addCocktailsToShoppinglist(UUID shoppingListId, List<CocktailId> cocktailId){
+    public ShoppingListResource addCocktailsToShoppinglist(UUID shoppingListId, List<CocktailId> cocktailIds){
         //Lookup the shoppinglist by ShoppingListId
         ShoppingListEntity shoppingListEntity = shoppingListRepository.getAShoppingListById(shoppingListId);
 
-        List<CocktailEntity> cocktailEntities = cocktailRepository.findByIdDrink;
-        List<CocktailId> cocktailIds = new ArrayList<>();
+        for(CocktailId cocktailId : cocktailIds){
+            CocktailEntity cocktailEntity = cocktailRepository.findById(cocktailId.getCocktailId());
+            shoppingListEntity.addCocktailToShoppingList(cocktailEntity);
 
-        for(CocktailEntity cocktailEntity : cocktailIds)
+        }
 
     }
 
