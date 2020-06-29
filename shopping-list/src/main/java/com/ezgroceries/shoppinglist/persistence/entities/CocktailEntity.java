@@ -11,13 +11,19 @@ import java.util.UUID;
 @Table(name = "cocktail")
 public class CocktailEntity {
     @Id
+    @Column(name = "id")
     private UUID cocktailEntityId;
+
+    @Column(name = "id_drink")
     private String idDrink;
+
+    @Column(name = "name")
     private String name;
 
     @ManyToMany(mappedBy = "cocktails")
     private Set<ShoppingListEntity> shoppingLists = new HashSet<>();
 
+    @Column(name = "ingredients")
     @Convert(converter = StringSetConverter.class)
     private Set<String> ingredients;
 

@@ -1,5 +1,6 @@
 package com.ezgroceries.shoppinglist.controllers.resources;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -11,7 +12,7 @@ public class ShoppingListResource {
     public ShoppingListResource() {
     }
 
-    public ShoppingListResource(UUID uuid, String shoppingListName, List ingredients) {
+    public ShoppingListResource(UUID uuid, String shoppingListName, List<String> ingredients) {
         this.uuid = uuid;
         this.shoppingListName = shoppingListName;
         this.ingredients = ingredients;
@@ -20,10 +21,14 @@ public class ShoppingListResource {
     public ShoppingListResource(UUID uuid, String shoppingListName) {
         this.uuid = uuid;
         this.shoppingListName = shoppingListName;
+        this.ingredients = new ArrayList<>();
     }
 
     public ShoppingListResource(String shoppingListName){
         this.shoppingListName = shoppingListName;
+        this.uuid = UUID.randomUUID();
+        this.shoppingListName = shoppingListName;
+        this.ingredients = new ArrayList<>();
     }
 
     public UUID getUuid() {

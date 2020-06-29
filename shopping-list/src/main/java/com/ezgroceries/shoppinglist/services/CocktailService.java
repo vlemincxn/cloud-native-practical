@@ -48,7 +48,7 @@ public class CocktailService {
             CocktailEntity cocktailEntity = existingEntityMap.get(drinkResource.getIdDrink());
             if (cocktailEntity == null) {
                 CocktailEntity newCocktailEntity = new CocktailEntity();
-                newCocktailEntity.setId(UUID.randomUUID());
+                newCocktailEntity.setCocktailEntityId(UUID.randomUUID());
                 newCocktailEntity.setIdDrink(drinkResource.getIdDrink());
                 newCocktailEntity.setName(drinkResource.getStrDrink());
                 cocktailEntity = cocktailRepository.save(newCocktailEntity);
@@ -65,7 +65,7 @@ public class CocktailService {
         return drinks.stream().map(drinkResource ->
                 new CocktailResource(
                         allEntityMap.get(
-                                    drinkResource.getIdDrink()).getId(),
+                                    drinkResource.getIdDrink()).getCocktailEntityId(),
                                     drinkResource.getStrDrink(),
                                     drinkResource.getStrGlass(),
                                     drinkResource.getStrInstructions(),
