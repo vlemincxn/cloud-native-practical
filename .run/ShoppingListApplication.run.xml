@@ -4,7 +4,7 @@
     <module name="shopping-list" />
     <extension name="coverage">
       <pattern>
-        <option name="PATTERN" value="com.ezgroceries.shoppinglist.*" />
+        <option name="PATTERN" value="com.ezgroceries.shoppinglist.config.*" />
         <option name="ENABLED" value="true" />
       </pattern>
     </extension>
