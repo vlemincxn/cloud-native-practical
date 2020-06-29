@@ -52,17 +52,24 @@ public class ShoppingListService {
         return shoppingListResource;
     }
 
-    public ShoppingListResource addCocktailsToShoppinglist(UUID shoppingListId, List<CocktailId> cocktailIds){
+    public ShoppingListResource addCocktailsToShoppinglist(UUID shoppingListId,
+                                                           List<CocktailId> cocktailIds){
+
         //Lookup the shoppinglist by ShoppingListId
         ShoppingListEntity shoppingListEntity = shoppingListRepository.getAShoppingListById(shoppingListId);
 
-        //snap deze fout niet...
 
         for(CocktailId cocktailId : cocktailIds){
-            CocktailEntity cocktailEntity = cocktailRepository.findById(cocktailId.getCocktailId());
+            //findById is van type optional. met .get() achteraan de methode gaan we ervan uit dat er altijd
+            //een object is om terug te krijgen.
+            //Men kan hier een exceptie rond bouwen zodaning er een 'NULL' pointer kan worden opgevangen
+
+            CocktailEntity cocktailEntity = cocktailRepository.findById(cocktailId.getCocktailId()).get();
             shoppingListEntity.addCocktailToShoppingList(cocktailEntity);
 
         }
+
+        shoppingListRepository.save(shoppingListEntity);
 
     }
 
