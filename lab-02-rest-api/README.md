@@ -26,7 +26,7 @@ Response
 
 [
     {
-        "cocktailId": "23b3d85a-3928-41c0-a533-6538a71e17c4",
+        "addCocktailToListResource": "23b3d85a-3928-41c0-a533-6538a71e17c4",
         "name": "Margerita",
         "glass": "Cocktail glass",
         "instructions": "Rub the rim of the glass with the lime slice to make the salt stick to it. Take care to moisten..",
@@ -39,7 +39,7 @@ Response
         ]
     },
     {
-        "cocktailId": "d615ec78-fe93-467b-8d26-5d26d8eab073",
+        "addCocktailToListResource": "d615ec78-fe93-467b-8d26-5d26d8eab073",
         "name": "Blue Margerita",
         "glass": "Cocktail glass",
         "instructions": "Rub rim of cocktail glass with lime juice. Dip rim in coarse salt..",
@@ -112,20 +112,20 @@ POST http://localhost:8080/shopping-lists/97c8e5bd-5353-426e-b57b-69eb2260ace3/c
 
 [
   {
-    "cocktailId": "23b3d85a-3928-41c0-a533-6538a71e17c4"
+    "addCocktailToListResource": "23b3d85a-3928-41c0-a533-6538a71e17c4"
   },
   {
-    "cocktailId": "d615ec78-fe93-467b-8d26-5d26d8eab073"
+    "addCocktailToListResource": "d615ec78-fe93-467b-8d26-5d26d8eab073"
   }
 ]
 ```
 
-Response, only needs to contain the cocktailId attributes 
+Response, only needs to contain the addCocktailToListResource attributes 
 
 ```
 [
     {
-        "cocktailId": "23b3d85a-3928-41c0-a533-6538a71e17c4"
+        "addCocktailToListResource": "23b3d85a-3928-41c0-a533-6538a71e17c4"
     }
 ]
 ```

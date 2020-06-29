@@ -4,27 +4,27 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class ShoppingListResource {
+public class ShoppingListCreateResource {
     private UUID uuid;
     private String shoppingListName;
     private List ingredients;
 
-    public ShoppingListResource() {
+    public ShoppingListCreateResource() {
     }
 
-    public ShoppingListResource(UUID uuid, String shoppingListName, List<String> ingredients) {
+    public ShoppingListCreateResource(UUID uuid, String shoppingListName, List<String> ingredients) {
         this.uuid = uuid;
         this.shoppingListName = shoppingListName;
         this.ingredients = ingredients;
     }
 
-    public ShoppingListResource(UUID uuid, String shoppingListName) {
+    public ShoppingListCreateResource(UUID uuid, String shoppingListName) {
         this.uuid = uuid;
         this.shoppingListName = shoppingListName;
         this.ingredients = new ArrayList<>();
     }
 
-    public ShoppingListResource(String shoppingListName){
+    public ShoppingListCreateResource(String shoppingListName){
         this.shoppingListName = shoppingListName;
         this.uuid = UUID.randomUUID();
         this.shoppingListName = shoppingListName;

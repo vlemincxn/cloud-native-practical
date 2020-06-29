@@ -1,6 +1,6 @@
 package com.ezgroceries.shoppinglist.controllers;
 
-import com.ezgroceries.shoppinglist.controllers.resources.CocktailResource;
+import com.ezgroceries.shoppinglist.controllers.resources.CocktailResponseResource;
 import com.ezgroceries.shoppinglist.services.CocktailService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +20,7 @@ public class CocktailController {
     }
 
     @GetMapping
-    public List<CocktailResource> getCocktails(@RequestParam String searchString){
+    public List<CocktailResponseResource> getCocktails(@RequestParam String searchString){
         //Use the Cocktail service to call the search method
         return cocktailService.searchCocktails(searchString);
     }

@@ -3,7 +3,7 @@ package com.ezgroceries.shoppinglist.controllers.resources;
 import java.util.List;
 import java.util.UUID;
 
-public class CocktailResource {
+public class CocktailResponseResource {
 
     private UUID cocktailId;
     //            "cocktailId": "23b3d85a-3928-41c0-a533-6538a71e17c4",
@@ -24,12 +24,12 @@ public class CocktailResource {
 //            ]
 
 
-    public CocktailResource(UUID cocktailId,
-                            String name,
-                            String glass,
-                            String instructions,
-                            String image,
-                            List ingredients){
+    public CocktailResponseResource(UUID cocktailId,
+                                    String name,
+                                    String glass,
+                                    String instructions,
+                                    String image,
+                                    List ingredients){
         this.cocktailId = cocktailId;
         this.name = name;
         this.glass = glass;
@@ -39,7 +39,7 @@ public class CocktailResource {
 
     }
 
-    public CocktailResource() {
+    public CocktailResponseResource() {
 
     }
 

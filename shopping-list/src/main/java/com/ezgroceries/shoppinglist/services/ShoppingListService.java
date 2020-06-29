@@ -1,7 +1,7 @@
 package com.ezgroceries.shoppinglist.services;
 
-import com.ezgroceries.shoppinglist.controllers.resources.CocktailId;
-import com.ezgroceries.shoppinglist.controllers.resources.ShoppingListResource;
+import com.ezgroceries.shoppinglist.controllers.resources.AddCocktailToListResource;
+import com.ezgroceries.shoppinglist.controllers.resources.ShoppingListCreateResource;
 import com.ezgroceries.shoppinglist.persistence.entities.CocktailEntity;
 import com.ezgroceries.shoppinglist.persistence.entities.ShoppingListEntity;
 import com.ezgroceries.shoppinglist.persistence.repositories.CocktailRepository;
@@ -23,47 +23,47 @@ public class ShoppingListService {
         this.cocktailRepository = cocktailRepository;
     }
 
-    public ShoppingListResource createShoppingList(ShoppingListResource shoppingListResource) {
+    public ShoppingListCreateResource createShoppingList(ShoppingListCreateResource shoppingListCreateResource) {
         ShoppingListEntity shoppingListEntity =
-                new ShoppingListEntity(shoppingListResource.getUuid(), shoppingListResource.getShoppingListName());
+                new ShoppingListEntity(shoppingListCreateResource.getUuid(), shoppingListCreateResource.getShoppingListName());
 
         shoppingListEntity = shoppingListRepository.save(shoppingListEntity);
 
-        return new ShoppingListResource(shoppingListEntity.getId(), shoppingListEntity.getName());
+        return new ShoppingListCreateResource(shoppingListEntity.getId(), shoppingListEntity.getName());
     }
 
-    public List<ShoppingListResource> getAllShoppingLists(){
+    public List<ShoppingListCreateResource> getAllShoppingLists(){
         List<ShoppingListEntity> shoppingListEntities = shoppingListRepository.getAllShoppingLists();
-        List<ShoppingListResource> shoppingListResources = new ArrayList<>();
+        List<ShoppingListCreateResource> shoppingListCreateResources = new ArrayList<>();
 
         for (ShoppingListEntity shoppingListEntity : shoppingListEntities) {
-            shoppingListResources.add(new ShoppingListResource(shoppingListEntity.getId(), shoppingListEntity.getName()));
+            shoppingListCreateResources.add(new ShoppingListCreateResource(shoppingListEntity.getId(), shoppingListEntity.getName()));
         }
 
-        return  shoppingListResources;
+        return shoppingListCreateResources;
     }
 
-    public ShoppingListResource getAShoppingList(UUID shoppingListId){
+    public ShoppingListCreateResource getAShoppingList(UUID shoppingListId){
         ShoppingListEntity shoppingListEntity = shoppingListRepository.getAShoppingListById(shoppingListId);
-        ShoppingListResource shoppingListResource = new ShoppingListResource(shoppingListEntity.getName());
-        shoppingListResource.setUuid(shoppingListEntity.getId());
+        ShoppingListCreateResource shoppingListCreateResource = new ShoppingListCreateResource(shoppingListEntity.getName());
+        shoppingListCreateResource.setUuid(shoppingListEntity.getId());
 
-        return shoppingListResource;
+        return shoppingListCreateResource;
     }
 
 
     public void addCocktailsToShoppinglist(UUID shoppingListId,
-                                           List<CocktailId> cocktailIds){
+                                           List<AddCocktailToListResource> addCocktailToListResources){
 
         //Lookup the shoppinglist by ShoppingListId
         ShoppingListEntity shoppingListEntity = shoppingListRepository.getAShoppingListById(shoppingListId);
 
-        for(CocktailId cocktailId : cocktailIds){
+        for(AddCocktailToListResource addCocktailToListResource : addCocktailToListResources){
             //findById is van type optional. met .get() achteraan de methode gaan we ervan uit dat er altijd
             //een object is om terug te krijgen.
             //Men kan hier een exceptie rond bouwen zodaning er een 'NULL' pointer kan worden opgevangen
 
-            CocktailEntity cocktailEntity = cocktailRepository.findById(cocktailId.getCocktailId()).get();
+            CocktailEntity cocktailEntity = cocktailRepository.findById(addCocktailToListResource.getCocktailId()).get();
             shoppingListEntity.addCocktailToShoppingList(cocktailEntity);
 
         }

@@ -2,12 +2,12 @@ package com.ezgroceries.shoppinglist.controllers.resources;
 
 import java.util.UUID;
 
-public class CocktailId {
+public class AddCocktailToListResource {
     private UUID cocktailId;
 
-    public CocktailId(){}
+    public AddCocktailToListResource(){}
 
-    public CocktailId(UUID cocktailId){
+    public AddCocktailToListResource(UUID cocktailId){
         this.cocktailId = cocktailId;
     }
 

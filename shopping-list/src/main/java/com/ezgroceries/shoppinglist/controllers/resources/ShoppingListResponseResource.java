@@ -3,26 +3,26 @@ package com.ezgroceries.shoppinglist.controllers.resources;
 import java.util.List;
 import java.util.UUID;
 
-public class ShoppingList {
+public class ShoppingListResponseResource {
 
     private String name;
     private UUID shoppingListId;
     private List<String> ingredients;
 
-    public ShoppingList(){}
+    public ShoppingListResponseResource(){}
 
-    public ShoppingList(UUID shoppingListId, String name){
+    public ShoppingListResponseResource(UUID shoppingListId, String name){
         this.shoppingListId = shoppingListId;
         this.name = name;
     }
 
-    public ShoppingList(UUID shoppingListId, String name, List ingredients){
+    public ShoppingListResponseResource(UUID shoppingListId, String name, List ingredients){
         this.shoppingListId = shoppingListId;
         this.name = name;
         this.ingredients = ingredients;
     }
 
-    public ShoppingList(String name){
+    public ShoppingListResponseResource(String name){
         this.name = name;
     }
 

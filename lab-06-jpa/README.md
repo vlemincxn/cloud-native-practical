@@ -71,7 +71,7 @@ public class ShoppingListService {
         this.shoppingListRepository = shoppingListRepository;
     }
 
-    public ShoppingListResource create(ShoppingListResource shoppingListResource) {
+    public ShoppingListResource create(ShoppingListResource shoppingListCreateResource) {
         ... 
     }
 }

@@ -1,6 +1,4 @@
-package com.ezgroceries.shoppinglist.clients;
-
-import com.fasterxml.jackson.annotation.JsonInclude;
+package com.ezgroceries.shoppinglist.clients.cocktailDB.controllers.recources;
 
 import java.util.List;
 

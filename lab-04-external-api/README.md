@@ -146,7 +146,7 @@ Response:
 ```
 [
     {
-        "cocktailId": "88e57cc2-09d2-43ab-9ff3-de14811523a1",
+        "addCocktailToListResource": "88e57cc2-09d2-43ab-9ff3-de14811523a1",
         "name": "Black Russian",
         "glass": "Old-fashioned glass",
         "instructions": "Pour the ingredients into an old fashioned glass filled with ice cubes. Stir gently.",
@@ -157,7 +157,7 @@ Response:
         ]
     },
     {
-        "cocktailId": "a1118959-bc4b-47a5-bba5-d469f2c49d39",
+        "addCocktailToListResource": "a1118959-bc4b-47a5-bba5-d469f2c49d39",
         "name": "White Russian",
         "glass": "Old-fashioned glass",
         "instructions": "Pour vodka and coffee liqueur over ice cubes in an old-fashioned glass. Fill with light cream and serve.",
