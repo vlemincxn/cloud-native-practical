@@ -56,6 +56,8 @@ public class ShoppingListService {
         //Lookup the shoppinglist by ShoppingListId
         ShoppingListEntity shoppingListEntity = shoppingListRepository.getAShoppingListById(shoppingListId);
 
+        //snap deze fout niet...
+
         for(CocktailId cocktailId : cocktailIds){
             CocktailEntity cocktailEntity = cocktailRepository.findById(cocktailId.getCocktailId());
             shoppingListEntity.addCocktailToShoppingList(cocktailEntity);

@@ -11,7 +11,7 @@ import java.util.UUID;
 @Table(name = "cocktail")
 public class CocktailEntity {
     @Id
-    private UUID id;
+    private UUID cocktailEntityId;
     private String idDrink;
     private String name;
 
@@ -21,12 +21,12 @@ public class CocktailEntity {
     @Convert(converter = StringSetConverter.class)
     private Set<String> ingredients;
 
-    public UUID getId() {
-        return id;
+    public UUID getCocktailEntityId() {
+        return cocktailEntityId;
     }
 
-    public void setId(UUID id) {
-        this.id = id;
+    public void setCocktailEntityId(UUID id) {
+        this.cocktailEntityId = id;
     }
 
     public String getIdDrink() {
@@ -64,4 +64,9 @@ public class CocktailEntity {
     }
 
 
+    public CocktailEntity(){}
+
+    public CocktailEntity(UUID cocktailEntityIdId){
+        this.cocktailEntityId = cocktailEntityId;
+    }
 }
