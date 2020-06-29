@@ -1,6 +1,7 @@
 package com.ezgroceries.shoppinglist.controllers;
 
-import com.ezgroceries.shoppinglist.controllers.resources.*;
+import com.ezgroceries.shoppinglist.controllers.resources.CocktailId;
+import com.ezgroceries.shoppinglist.controllers.resources.ShoppingListResource;
 import com.ezgroceries.shoppinglist.services.ShoppingListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -33,7 +34,9 @@ public class ShoppingListController {
     @PostMapping(value = "/shopping-lists/{shoppingListId}/cocktails")
     public List<CocktailId> addCocktails(@PathVariable UUID shoppingListId,
                                          @RequestBody List<CocktailId> cocktails){
-        return shoppingListService.addCocktailsToShoppinglist(shoppingListId, cocktails);
+        shoppingListService.addCocktailsToShoppinglist(shoppingListId, cocktails);
+
+        return cocktails;
     }
 
     @GetMapping

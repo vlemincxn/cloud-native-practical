@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -52,12 +51,12 @@ public class ShoppingListService {
         return shoppingListResource;
     }
 
-    public ShoppingListResource addCocktailsToShoppinglist(UUID shoppingListId,
-                                                           List<CocktailId> cocktailIds){
+
+    public void addCocktailsToShoppinglist(UUID shoppingListId,
+                                           List<CocktailId> cocktailIds){
 
         //Lookup the shoppinglist by ShoppingListId
         ShoppingListEntity shoppingListEntity = shoppingListRepository.getAShoppingListById(shoppingListId);
-
 
         for(CocktailId cocktailId : cocktailIds){
             //findById is van type optional. met .get() achteraan de methode gaan we ervan uit dat er altijd
